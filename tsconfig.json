@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "CommonJS",
+        "lib": ["ESNext", "DOM"],
+        "allowJs": true,
+        "jsx": "react-jsx",
+        "sourceMap": true,
+        "removeComments": false,
+        "skipLibCheck": true,
+        "strict": true,
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        // "types": ["./src/types.d.ts"],
+        "typeRoots": ["./node_modules/@types", "./src/types"],
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "preserveConstEnums": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "isolatedModules": false,
+        "declarationDir": "dist/types",
+        "declaration": true,
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    },
+    "ts-node": {
+        "swc": true
+    },
+    "include": ["./src/**/*", "./scripts/**/*", "./gatsby-*.ts", "./gatsby-*.tsx", "./plugins/**/*"]
+}

@@ -1,0 +1,29 @@
+pre-commit:
+  commands:
+    packages/kaave-estate/ts,tsx:
+      root: 'packages/kaave-estate/'
+      glob: '*.{ts,tsx}'
+      run: >
+        pnpm prettier --write {staged_files}
+        && pnpm eslint --fix {staged_files}
+        && git add {staged_files}
+    packages/kaave-estate/css:
+      root: 'packages/kaave-estate/'
+      glob: '*.css'
+      run: >
+        pnpm prettier --write {staged_files}
+        && pnpm stylelint --fix {staged_files}
+        && git add {staged_files}
+    packages/kaave-estate/json,yaml,yml:
+      root: 'packages/kaave-estate/'
+      glob: '*.{json,yaml,yml}'
+      exclude: 'package.json|pnpm-lock.yaml'
+      run: >
+        pnpm prettier --write {staged_files}
+        && git add {staged_files}
+    packages/kaave-estate/sort-package-json:
+      root: 'packages/kaave-estate/'
+      glob: 'package.json'
+      run: >
+        pnpm sort-package-json
+        && git add {staged_files}

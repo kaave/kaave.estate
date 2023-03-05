@@ -1,0 +1,173 @@
+/* .root { } */
+
+.root > * {
+  position: relative;
+  z-index: 1;
+  font-size: var(--font-size-normal);
+  font-feature-settings: 'palt' 0;
+  font-kerning: none;
+  line-height: var(--line-height-document);
+  letter-spacing: 0.01em;
+}
+
+.text-origin {
+  position: relative;
+  z-index: 1;
+}
+
+.root > * + * {
+  margin-top: calc(var(--gutter) * 2);
+}
+
+.root h2 {
+  font-size: 2.4rem;
+}
+
+.root h3 {
+  font-size: 2rem;
+}
+
+.root h4 {
+  font-size: 1.8rem;
+}
+
+.root h2,
+.root h3,
+.root h4,
+.root h5,
+.root h6 {
+  position: sticky;
+  margin-top: calc(var(--gutter) * 3);
+  margin-bottom: calc(var(--gutter) * 3);
+  font-family: var(--font-family-sans-serif);
+  font-weight: var(--font-weight-normal);
+  letter-spacing: 0.1em;
+
+  &::after {
+    position: absolute;
+    top: 1em;
+    z-index: 0;
+    max-width: 25vw;
+    line-height: 0.8;
+    color: #f2f2f2;
+    letter-spacing: -0.1em;
+    content: attr(data-text);
+    user-select: none;
+
+    @media screen and (max-width: 767px) {
+      & {
+        top: 2em;
+      }
+    }
+  }
+}
+
+.root h2::after {
+  font-size: 5vmax;
+}
+
+.root h3::after {
+  font-size: 4vmax;
+}
+
+.root h4::after {
+  font-size: 3vmax;
+}
+
+.root h5::after {
+  font-size: 2vmax;
+}
+
+.root h6::after {
+  font-size: 1.5vmax;
+}
+
+.root h2:nth-of-type(5n + 1)::after,
+.root h3:nth-of-type(5n + 1)::after,
+.root h4:nth-of-type(5n + 1)::after,
+.root h5:nth-of-type(5n + 1)::after,
+.root h6:nth-of-type(5n + 1)::after {
+  left: -10vw;
+
+  @media screen and (max-width: 767px) {
+    & {
+      left: 5vw;
+    }
+  }
+}
+
+.root h2:nth-of-type(5n + 2)::after,
+.root h3:nth-of-type(5n + 2)::after,
+.root h4:nth-of-type(5n + 2)::after,
+.root h5:nth-of-type(5n + 2)::after,
+.root h6:nth-of-type(5n + 2)::after {
+  right: -2vw;
+
+  @media screen and (max-width: 767px) {
+    & {
+      right: 2vw;
+    }
+  }
+}
+
+.root h2:nth-of-type(5n + 3)::after,
+.root h3:nth-of-type(5n + 3)::after,
+.root h4:nth-of-type(5n + 3)::after,
+.root h5:nth-of-type(5n + 3)::after,
+.root h6:nth-of-type(5n + 3)::after {
+  left: 15vw;
+}
+
+.root h2:nth-of-type(5n + 4)::after,
+.root h3:nth-of-type(5n + 4)::after,
+.root h4:nth-of-type(5n + 4)::after,
+.root h5:nth-of-type(5n + 4)::after,
+.root h6:nth-of-type(5n + 4)::after {
+  @media screen and (max-width: 767px) {
+    & {
+      right: 30vw;
+    }
+  }
+}
+
+.root h2:nth-of-type(5n)::after,
+.root h3:nth-of-type(5n)::after,
+.root h4:nth-of-type(5n)::after,
+.root h5:nth-of-type(5n)::after,
+.root h6:nth-of-type(5n)::after {
+  @media screen and (max-width: 767px) {
+    & {
+      right: 5vw;
+    }
+  }
+}
+
+.root p {
+  font-family: var(--font-family-serif);
+}
+
+.root :not(pre) > code {
+  padding: 0.2em 0.4em;
+  margin: 0 0.2em;
+  font-size: 0.9em;
+  color: var(--color-red);
+  text-shadow: none;
+  background: var(--color-gray);
+
+  @media screen and (max-width: 767px) {
+    & {
+      font-size: 1em;
+    }
+  }
+}
+
+.root ol,
+.root ul {
+  margin-left: 1em;
+  font-family: var(--font-family-serif);
+}
+
+.root hr {
+  width: 3em;
+  margin: calc(var(--gutter) * 5) auto;
+}

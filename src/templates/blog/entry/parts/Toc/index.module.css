@@ -1,0 +1,68 @@
+.root {
+  position: fixed;
+  top: var(--header-height);
+  left: 50vw;
+  z-index: 1;
+  width: calc((var(--max-width) - var(--content-width)) / 2);
+  font-family: var(--font-family-serif);
+  transform: translateX(calc(var(--content-width) / 2));
+}
+
+/* 1440px = var(--max-width) */
+@media screen and (max-width: 1440px) {
+  .root {
+    width: calc((100vw - var(--content-width)) / 2);
+  }
+}
+
+/* 3カラムを保つ限界 */
+@media screen and (max-width: 900px) {
+  .root {
+    display: none;
+  }
+}
+
+.root > ul {
+  position: absolute;
+  top: calc(var(--gutter) * 10);
+  left: 13%;
+  width: calc(100% - 26%);
+}
+
+.root > ul::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  content: '';
+}
+
+.root ul,
+.root li {
+  list-style: none;
+}
+
+.root ul ul {
+  margin-top: calc(var(--gutter) * 4);
+  margin-left: calc(var(--gutter) * 2);
+}
+
+.root li {
+  position: relative;
+  z-index: 1;
+  font-size: var(--font-size-normal);
+}
+
+.root li + li {
+  margin-top: calc(var(--gutter) * 4);
+}
+
+.root a {
+  display: inline-block;
+  font-size: var(--font-size-normal);
+  font-style: var(--font-family-sans-serif);
+  color: currentColor;
+  text-decoration: none;
+}

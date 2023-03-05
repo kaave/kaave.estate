@@ -1,0 +1,30 @@
+.spNav {
+  position: fixed;
+  top: var(--header-height-sp);
+  right: 3rem;
+  left: 0;
+  z-index: 0;
+  width: 100vw;
+  height: calc(100vh - var(--header-height-sp));
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+  transition: all 200ms var(--ease-out-expo);
+  transform: translate3d(-8px, 0, 0);
+}
+
+@media screen and (max-width: 767px) {
+  .pcNav {
+    display: none;
+  }
+
+  .spNav[aria-hidden='false'] {
+    z-index: 3;
+    display: block;
+    pointer-events: auto;
+    user-select: auto;
+    opacity: 1;
+    transform: none;
+    backdrop-filter: blur(5px);
+  }
+}

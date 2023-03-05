@@ -1,0 +1,25 @@
+/* body { } */
+/* #___gatsby { } */
+
+/* 事実上の Root element */
+#gatsby-focus-wrapper {
+  position: relative;
+  display: grid;
+  grid-template:
+    'header header header' var(--header-height)
+    'nav contents contents' 1fr /
+    1fr 640px 1fr;
+  width: 100%;
+  max-width: 1440px;
+  height: 100%;
+  margin: auto;
+}
+
+@media screen and (max-width: 768px) {
+  #gatsby-focus-wrapper {
+    grid-template:
+      'header header header' var(--header-height-sp)
+      'nav contents contents' 1fr /
+      0px 100vw 0px;
+  }
+}

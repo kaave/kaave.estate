@@ -1,0 +1,137 @@
+.root {
+  display: grid;
+  grid-template:
+    'article aside' auto /
+    640px auto;
+}
+
+@media screen and (max-width: 767px) {
+  .root {
+    display: block;
+    grid-template: none;
+    padding-right: calc(var(--gutter) * 2);
+    padding-left: calc(var(--gutter) * 2);
+  }
+}
+
+.root > :nth-child(1) {
+  grid-area: article;
+}
+
+.root > :nth-child(2) {
+  grid-area: aside;
+}
+
+.article {
+  height: 100%;
+  padding-bottom: calc(var(--gutter) * 10);
+}
+
+.article > :nth-child(2) {
+  margin-top: calc(var(--gutter) * 2);
+}
+
+.header {
+  display: grid;
+  grid-template:
+    'published tags' auto
+    'title title' auto
+    'thumbnail thumbnail' auto /
+    auto;
+  gap: var(--gutter) 0;
+  font-family: var(--font-family-serif);
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    gap: 0;
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-wide);
+  }
+}
+
+.header > :nth-child(1) {
+  grid-area: published;
+}
+
+.header > :nth-child(2) {
+  grid-area: tags;
+}
+
+.header > :nth-child(3) {
+  grid-area: title;
+}
+
+.header > :nth-child(4) {
+  grid-area: thumbnail;
+}
+
+.tags {
+  text-align: right;
+  list-style: none;
+}
+
+.tag {
+  display: inline-block;
+}
+
+.tag + .tag {
+  margin-left: var(--gutter);
+}
+
+.tag::before {
+  content: '#';
+}
+
+.title {
+  position: relative;
+  font-family: var(--font-family-sans-serif);
+  font-size: 3.2rem;
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  letter-spacing: 0.05em;
+}
+
+@media screen and (max-width: 767px) {
+  .title {
+    font-size: 2.2rem;
+    line-height: var(--line-height-wide);
+  }
+}
+
+.title::after {
+  position: fixed;
+  bottom: 1em;
+  left: 10vw;
+  z-index: 0;
+  max-width: 30vw;
+  font-size: 8vw;
+  line-height: 0.6;
+  color: #fff;
+  text-shadow: -1px -1px 0 #f2f2f2, -1px 0 0 #f2f2f2, -1px 1px 0 #f2f2f2, 0 -1px 0 #f2f2f2, 0 1px 0 #f2f2f2,
+    1px -1px 0 #f2f2f2, 1px 0 0 #f2f2f2, 1px 1px 0 #f2f2f2;
+  letter-spacing: -0.1em;
+  content: attr(data-text);
+  user-select: none;
+}
+
+.thumbnail {
+  aspect-ratio: 2.35/1;
+  object-fit: contain;
+}
+
+.bottom {
+  position: relative;
+  padding-top: calc(var(--gutter) * 10);
+}
+
+.bottom::before {
+  position: absolute;
+  top: calc(var(--gutter) * 5);
+  left: 50%;
+  width: 3em;
+  height: 1px;
+  content: '';
+  background: currentColor;
+  transform: translateX(-50%);
+}

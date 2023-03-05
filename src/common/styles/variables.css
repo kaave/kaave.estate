@@ -1,0 +1,58 @@
+/*
+ * text
+ */
+:root {
+  --font-family-serif: 'Times New Roman', 'YuMincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'MS PMincho', serif;
+  --font-family-sans-serif: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  --font-family-mono: mono;
+
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  --font-size-xsmall: 1.2rem;
+  --font-size-small: 1.4rem;
+  --font-size-normal: 1.6rem;
+  --font-size-large: 1.8rem;
+  --font-size-xlarge: 2rem;
+
+  --line-height-compress: 1.2;
+  --line-height-normal: 1.33;
+  --line-height-wide: 1.5;
+  --line-height-document: 1.8;
+
+  /*
+   * color
+   */
+
+  /* https://www.designpieces.com/palette/github-color-palette-hex-and-rgb/ */
+  --color-blue: #4078c0;
+  --color-green: #6cc644;
+  --color-red: #bd2c00;
+  --color-orange: #c9510c;
+  --color-brown: #6e5494;
+  --color-white: #fafafa;
+  --color-gray: #f5f5f5;
+  --color-black: #333;
+
+  --color-bg: var(--color-white);
+  --color-text: var(--color-black);
+
+  /*
+   * Layout
+   */
+  --content-width: 640px;
+  --header-height: 64px;
+  --header-height-sp: 64px;
+  --max-width: 1440px;
+
+  /*
+   * Utils
+   */
+  --gutter: 8px;
+
+  /*
+   * easings
+   */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+}

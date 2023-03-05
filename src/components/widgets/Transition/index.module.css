@@ -1,0 +1,37 @@
+.wrapper {
+  animation: fadeIn 150ms ease-out 0s 1 normal;
+}
+
+.wrapper[data-style-transition='entering'] {
+  position: absolute;
+  opacity: 0;
+}
+
+.wrapper[data-style-transition='entered'] {
+  /* transition-duration は JS から注入する */
+  opacity: 1;
+  transition: opacity 0s ease-in-out;
+}
+
+.wrapper[data-style-transition='exiting'] {
+  /* transition-duration は JS から注入する */
+  opacity: 0;
+  transition: opacity 0s ease-in-out;
+}
+
+/* stylelint-disable-next-line block-no-empty */
+.wrapper[data-style-transition='exited'] {
+}
+
+/* stylelint-disable-next-line block-no-empty */
+.wrapper[data-style-transition='unmounted'] {
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

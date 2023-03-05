@@ -1,0 +1,102 @@
+.root {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--max-width);
+  height: var(--header-height);
+  padding: 0 calc(var(--gutter) * 3);
+}
+
+.logo {
+  width: 105px;
+}
+
+.link {
+  fill: var(--color-text);
+}
+
+.hamburger {
+  position: relative;
+  display: none;
+  width: 4rem;
+  height: 4rem;
+  font-size: 0;
+}
+
+.lineTop,
+.lineBottom {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 50%;
+  height: 1px;
+  transition: transform 200ms var(--ease-out-expo);
+  transform-origin: left center;
+}
+
+.lineTop {
+  transform: translate3d(0, -2px, 0);
+}
+
+.lineBottom {
+  transform: translate3d(0, 2px, 0);
+}
+
+.lineTop::before,
+.lineTop::after,
+.lineBottom::before,
+.lineBottom::after {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  content: '';
+  background: var(--color-text);
+  transition: transform 200ms var(--ease-out-expo);
+  transform-origin: left center;
+}
+
+.lineTop::before,
+.lineBottom::before {
+  left: 0;
+}
+
+.lineTop::after,
+.lineBottom::after {
+  left: 50%;
+}
+
+[aria-pressed='true'] > .lineTop {
+  transform: none;
+}
+
+[aria-pressed='true'] > .lineBottom {
+  transform: none;
+}
+
+[aria-pressed='true'] > .lineTop::before,
+[aria-pressed='true'] > .lineTop::after {
+  transform: rotate(50deg);
+}
+
+[aria-pressed='true'] > .lineBottom::before,
+[aria-pressed='true'] > .lineBottom::after {
+  transform: rotate(-50deg);
+}
+
+@media screen and (max-width: 768px) {
+  .root {
+    height: var(--header-height-sp);
+    padding-right: calc(var(--gutter) * 2);
+    padding-left: calc(var(--gutter) * 2);
+    backdrop-filter: blur(5px);
+  }
+
+  .hamburger {
+    display: inline-block;
+  }
+}
