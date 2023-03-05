@@ -217,4 +217,5 @@ $RECYCLE.BIN/
 /.vscode
 /public
 /src/**/*.d.ts
+!/src/gatsby-types.d.ts
 /src/Nav.tsx
