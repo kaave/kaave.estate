@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "description": "kaave-estate",
+  "engines": {
+    "node": "18.14.2",
+    "yarn": "not_allowed_yarn",
+    "npm": "not_allowed_npm"
+  },
   "scripts": {
     "dev": "run-s gen dev:*",
     "dev:gatsby": "gatsby develop --host 0.0.0.0",
