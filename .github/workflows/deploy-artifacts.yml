@@ -63,8 +63,10 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/pnpm-lock.yaml') }}
 
+      # Gatsby generates graphql types on build.
+      # Although irregular, run in this order.
+      - run: pnpm build
+
       - run: pnpm gen
       - run: pnpm typecheck
       - run: pnpm lint
-
-      - run: pnpm build
